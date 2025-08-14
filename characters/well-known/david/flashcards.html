@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King David Flash Cards | Bible Study Hub</title>
+    <meta name="description" content="Interactive flashcards about King David - the shepherd king with a heart for God. Learn about his life, leadership, and lessons through engaging study tools.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .breadcrumb {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(255,255,255,0.5);
+        }
+
+        .breadcrumb a:hover {
+            opacity: 1;
+            border-bottom: 1px solid white;
+        }
+
+        .controls {
+            margin-bottom: 30px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            background: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #1e3c72;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: #f0f8ff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        .card-container {
+            perspective: 1000px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            width: 400px;
+            height: 300px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+
+        .card-front {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .card-content {
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        .navigation {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .card-counter {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            width: 300px;
+            height: 8px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #4CAF50;
+            transition: width 0.3s ease;
+        }
+
+        .instructions {
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .back-to-home {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                width: 320px;
+                height: 250px;
+            }
+            
+            .card-face {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>👑 King David Flash Cards</h1>
+        <p class="subtitle">Interactive Bible Study Cards</p>
+        <p class="breadcrumb">
+            <a href="../../../index.html">🏠 Bible Study Hub</a> → 
+            <a href="../../../index.html#well-known">Well-Known Characters</a> → 
+            David Flashcards
+        </p>
+    </div>
+
+    <div class="instructions">
+        Click the card to flip it, or use the navigation buttons below
+    </div>
+
+    <div class="controls">
+        <button class="btn" onclick="previousCard()">← Previous</button>
+        <button class="btn" onclick="toggleCard()">Flip Card</button>
+        <button class="btn" onclick="nextCard()">Next →</button>
+        <button class="btn" onclick="shuffleCards()">🔀 Shuffle</button>
+    </div>
+
+    <div class="navigation">
+        <span class="card-counter" id="cardCounter">Card 1 of 20</span>
+    </div>
+
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <div class="card-container">
+        <div class="card" id="flashCard" onclick="toggleCard()">
+            <div class="card-face card-front" id="cardFront">
+                <div class="card-icon">👑</div>
+                <div class="card-title">Character Trait</div>
+                <div class="card-content">What one word describes David's character?</div>
+            </div>
+            <div class="card-face card-back" id="cardBack">
+                <div class="card-icon">❤️</div>
+                <div class="card-title">Heartfelt</div>
+                <div class="card-content">David was known as "a man after God's own heart" who expressed deep emotions in worship and relationships.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="back-to-home">
+        <a href="../../../index.html" class="btn">🏠 Back to Bible Study Hub</a>
+    </div>
+
+    <script>
+        const flashcards = [
+            {
+                front: { icon: "👑", title: "Character Trait", content: "What one word describes David's character?" },
+                back: { icon: "❤️", title: "Heartfelt", content: "David was known as 'a man after God's own heart' who expressed deep emotions in worship and relationships." }
+            },
+            {
+                front: { icon: "🎯", title: "Famous Victory", content: "What giant did David defeat as a young man?" },
+                back: { icon: "⚔️", title: "Goliath", content: "David killed the Philistine giant Goliath with just a sling and stone, trusting in God's power." }
+            },
+            {
+                front: { icon: "🏰", title: "Capital City", content: "Which city did David establish as Israel's capital?" },
+                back: { icon: "🕊️", title: "Jerusalem", content: "David captured Jerusalem and made it the political and spiritual center of Israel, bringing the Ark there." }
+            },
+            {
+                front: { icon: "🎵", title: "Creative Work", content: "What type of songs did David write?" },
+                back: { icon: "📜", title: "Psalms", content: "David wrote about half of the 150 Psalms - songs of worship, prayer, and honest emotion to God." }
+            },
+            {
+                front: { icon: "🐑", title: "Early Job", content: "What was David's occupation before becoming king?" },
+                back: { icon: "🎶", title: "Shepherd", content: "David tended his father's sheep and played the harp, learning to care for and protect those under his charge." }
+            },
+            {
+                front: { icon: "👨‍👦", title: "Father", content: "Who was David's father?" },
+                back: { icon: "🌾", title: "Jesse", content: "Jesse of Bethlehem had eight sons, with David being the youngest when Samuel anointed him." }
+            },
+            {
+                front: { icon: "🤝", title: "Best Friend", content: "Who was David's closest friend?" },
+                back: { icon: "🏹", title: "Jonathan", content: "Jonathan, King Saul's son, loved David like his own soul and protected him from his father's jealousy." }
+            },
+            {
+                front: { icon: "💔", title: "Major Sin", content: "What was David's greatest moral failure?" },
+                back: { icon: "😔", title: "Bathsheba Affair", content: "David committed adultery with Bathsheba and arranged her husband Uriah's death to cover it up." }
+            },
+            {
+                front: { icon: "🗣️", title: "Prophet's Confrontation", content: "Which prophet confronted David about his sin?" },
+                back: { icon: "⚖️", title: "Nathan", content: "Nathan told David a parable about a rich man stealing a poor man's lamb, leading David to repent." }
+            },
+            {
+                front: { icon: "🏛️", title: "Temple Dream", content: "What did David want to build for God?" },
+                back: { icon: "🔨", title: "The Temple", content: "David planned and gathered materials for God's temple, but God chose his son Solomon to build it." }
+            },
+            {
+                front: { icon: "👑", title: "Dynasty Promise", content: "What did God promise about David's family line?" },
+                back: { icon: "♾️", title: "Eternal Kingdom", content: "God promised David's descendant would rule forever - fulfilled in Jesus, the 'Son of David.'" }
+            },
+            {
+                front: { icon: "🏃‍♂️", title: "Years in Exile", content: "Why did David have to flee and hide for years?" },
+                back: { icon: "😡", title: "Saul's Jealousy", content: "King Saul became jealous of David's popularity and success, repeatedly trying to kill him." }
+            },
+            {
+                front: { icon: "👥", title: "Elite Warriors", content: "What was the name of David's special fighting force?" },
+                back: { icon: "💪", title: "Mighty Men", content: "David's 'Mighty Men' were elite warriors who performed incredible feats of loyalty and courage." }
+            },
+            {
+                front: { icon: "📊", title: "Leadership Quality", content: "What made people willing to follow David?" },
+                back: { icon: "🤝", title: "Authentic Relationships", content: "David built loyalty through genuine care, sharing risks, and valuing each person's contribution." }
+            },
+            {
+                front: { icon: "🎭", title: "Character Flaw", content: "What negative trait sometimes controlled David?" },
+                back: { icon: "😤", title: "Vindictiveness", content: "David could hold grudges and seek revenge, as shown in his deathbed instructions about enemies." }
+            },
+            {
+                front: { icon: "🏺", title: "Archaeological Proof", content: "What inscription first confirmed David's existence?" },
+                back: { icon: "🗿", title: "Tel Dan Inscription", content: "A 9th century BCE stone inscription mentioning the 'House of David' provided first historical evidence." }
+            },
+            {
+                front: { icon: "⏳", title: "Reign Length", content: "How long did David rule as king?" },
+                back: { icon: "🗓️", title: "40 Years", content: "David ruled 7 years in Hebron and 33 years in Jerusalem, totaling 40 years as king of Israel." }
+            },
+            {
+                front: { icon: "✝️", title: "Christ Connection", content: "How does David point to Jesus?" },
+                back: { icon: "👑", title: "The True King", content: "Both were born in Bethlehem, shepherds, anointed kings, and faced rejection before ultimate acceptance." }
+            },
+            {
+                front: { icon: "📖", title: "Memory Verse", content: "What verse shows how God sees differently than humans?" },
+                back: { icon: "👁️", title: "1 Samuel 16:7", content: "'The Lord does not look at the things people look at. People look at the outward appearance, but the Lord looks at the heart.'" }
+            },
+            {
+                front: { icon: "🎯", title: "Life Lesson", content: "What's the main lesson from David's life?" },
+                back: { icon: "💝", title: "God Uses Imperfect People", content: "Despite failures, David's heart remained turned toward God, showing that repentance restores relationship." }
+            }
+        ];
+
+        let currentCard = 0;
+        let isFlipped = false;
+
+        function updateCard() {
+            const card = flashcards[currentCard];
+            const cardFront = document.getElementById('cardFront');
+            const cardBack = document.getElementById('cardBack');
+            
+            // Update front
+            cardFront.innerHTML = `
+                <div class="card-icon">${card.front.icon}</div>
+                <div class="card-title">${card.front.title}</div>
+                <div class="card-content">${card.front.content}</div>
+            `;
+            
+            // Update back
+            cardBack.innerHTML = `
+                <div class="card-icon">${card.back.icon}</div>
+                <div class="card-title">${card.back.title}</div>
+                <div class="card-content">${card.back.content}</div>
+            `;
+            
+            // Update counter and progress
+            document.getElementById('cardCounter').textContent = `Card ${currentCard + 1} of ${flashcards.length}`;
+            document.getElementById('progressFill').style.width = `${((currentCard + 1) / flashcards.length) * 100}%`;
+            
+            // Reset flip state
+            document.getElementById('flashCard').classList.remove('flipped');
+            isFlipped = false;
+        }
+
+        function toggleCard() {
+            const card = document.getElementById('flashCard');
+            card.classList.toggle('flipped');
+            isFlipped = !isFlipped;
+        }
+
+        function nextCard() {
+            currentCard = (currentCard + 1) % flashcards.length;
+            updateCard();
+        }
+
+        function previousCard() {
+            currentCard = currentCard === 0 ? flashcards.length - 1 : currentCard - 1;
+            updateCard();
+        }
+
+        function shuffleCards() {
+            for (let i = flashcards.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+            }
+            currentCard = 0;
+            updateCard();
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            switch(event.key) {
+                case 'ArrowRight':
+                case ' ':
+                    nextCard();
+                    break;
+                case 'ArrowLeft':
+                    previousCard();
+                    break;
+                case 'ArrowUp':
+                case 'ArrowDown':
+                    toggleCard();
+                    break;
+            }
+        });
+
+        // Initialize
+        updateCard();
+
+        // Track usage
+        console.log('David flashcards loaded - Bible Study Hub');
+    </script>
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John the Baptist Flash Cards | Bible Study Hub</title>
+    <meta name="description" content="Interactive flashcards about John the Baptist - the forerunner who prepared the way for Jesus. Learn about boldness, humility, and faithful witness.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .breadcrumb {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(255,255,255,0.5);
+        }
+
+        .breadcrumb a:hover {
+            opacity: 1;
+            border-bottom: 1px solid white;
+        }
+
+        .controls {
+            margin-bottom: 30px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            background: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #0083b0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: #f0f8ff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        .card-container {
+            perspective: 1000px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            width: 400px;
+            height: 300px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+
+        .card-front {
+            background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+            color: #333;
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: #333;
+            transform: rotateY(180deg);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .card-content {
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        .navigation {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .card-counter {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            width: 300px;
+            height: 8px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #4CAF50;
+            transition: width 0.3s ease;
+        }
+
+        .instructions {
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .back-to-home {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                width: 320px;
+                height: 250px;
+            }
+            
+            .card-face {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🌊 John the Baptist Flash Cards</h1>
+        <p class="subtitle">The Forerunner Who Prepared the Way</p>
+        <p class="breadcrumb">
+            <a href="../../../index.html">🏠 Bible Study Hub</a> → 
+            <a href="../../../index.html#well-known">Well-Known Characters</a> → 
+            John the Baptist Flashcards
+        </p>
+    </div>
+
+    <div class="instructions">
+        Click the card to flip it, or use the navigation buttons below
+    </div>
+
+    <div class="controls">
+        <button class="btn" onclick="previousCard()">← Previous</button>
+        <button class="btn" onclick="toggleCard()">Flip Card</button>
+        <button class="btn" onclick="nextCard()">Next →</button>
+        <button class="btn" onclick="shuffleCards()">🔀 Shuffle</button>
+    </div>
+
+    <div class="navigation">
+        <span class="card-counter" id="cardCounter">Card 1 of 18</span>
+    </div>
+
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <div class="card-container">
+        <div class="card" id="flashCard" onclick="toggleCard()">
+            <div class="card-face card-front" id="cardFront">
+                <div class="card-icon">🌊</div>
+                <div class="card-title">Character Trait</div>
+                <div class="card-content">What one word describes John the Baptist's character?</div>
+            </div>
+            <div class="card-face card-back" id="cardBack">
+                <div class="card-icon">🗣️</div>
+                <div class="card-title">Forerunner</div>
+                <div class="card-content">John prepared the way for Jesus, always pointing others toward Christ rather than himself.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="back-to-home">
+        <a href="../../../index.html" class="btn">🏠 Back to Bible Study Hub</a>
+    </div>
+
+    <script>
+        const flashcards = [
+            {
+                front: { icon: "🌊", title: "Character Trait", content: "What one word describes John the Baptist's character?" },
+                back: { icon: "🗣️", title: "Forerunner", content: "John prepared the way for Jesus, always pointing others toward Christ rather than himself." }
+            },
+            {
+                front: { icon: "👨‍👦", title: "Parents", content: "Who were John the Baptist's parents?" },
+                back: { icon: "⛪", title: "Zechariah & Elizabeth", content: "Zechariah was a priest, Elizabeth was barren until God miraculously gave them John in their old age." }
+            },
+            {
+                front: { icon: "👶", title: "Birth Miracle", content: "What was miraculous about John's birth?" },
+                back: { icon: "👴", title: "Born to Elderly Parents", content: "His parents were old and barren, and an angel announced his birth to his father in the temple." }
+            },
+            {
+                front: { icon: "🤐", title: "Father's Punishment", content: "What happened to John's father when the angel appeared?" },
+                back: { icon: "😶", title: "Struck Mute", content: "Zechariah was made mute for doubting the angel's message until John was born." }
+            },
+            {
+                front: { icon: "🏜️", title: "Ministry Location", content: "Where did John conduct his ministry?" },
+                back: { icon: "🌊", title: "Jordan River Wilderness", content: "John preached and baptized in the wilderness areas around the Jordan River." }
+            },
+            {
+                front: { icon: "👕", title: "Distinctive Clothing", content: "What did John the Baptist wear?" },
+                back: { icon: "🐪", title: "Camel Hair & Leather", content: "John wore clothing made of camel's hair with a leather belt, similar to the prophet Elijah." }
+            },
+            {
+                front: { icon: "🍽️", title: "Unusual Diet", content: "What did John the Baptist eat?" },
+                back: { icon: "🦗", title: "Locusts & Wild Honey", content: "John's wilderness diet consisted of locusts and wild honey, showing his simple, austere lifestyle." }
+            },
+            {
+                front: { icon: "💧", title: "Ministry Method", content: "What was John's primary ministry practice?" },
+                back: { icon: "🙏", title: "Baptism for Repentance", content: "John baptized people in the Jordan River as a symbol of repentance and preparation for the Messiah." }
+            },
+            {
+                front: { icon: "🔥", title: "Preaching Style", content: "How would you describe John's preaching?" },
+                back: { icon: "💪", title: "Bold & Uncompromising", content: "John fearlessly confronted sin, calling religious leaders 'vipers' and demanding genuine repentance." }
+            },
+            {
+                front: { icon: "✨", title: "Greatest Moment", content: "What was the highlight of John's ministry?" },
+                back: { icon: "🕊️", title: "Baptizing Jesus", content: "John baptized Jesus and witnessed the Holy Spirit descending like a dove and God's voice from heaven." }
+            },
+            {
+                front: { icon: "🐑", title: "Famous Declaration", content: "What famous words did John say about Jesus?" },
+                back: { icon: "✝️", title: "Behold, the Lamb of God", content: "'Behold, the Lamb of God who takes away the sin of the world!' - pointing to Jesus' sacrificial mission." }
+            },
+            {
+                front: { icon: "📈", title: "Life Philosophy", content: "What was John's motto about his relationship to Jesus?" },
+                back: { icon: "📉", title: "He Must Increase, I Must Decrease", content: "John humbly recognized that his role was to point to Jesus, not to build his own following." }
+            },
+            {
+                front: { icon: "👑", title: "Political Confrontation", content: "Which ruler did John boldly confront?" },
+                back: { icon: "⚔️", title: "Herod Antipas", content: "John courageously told Herod it was unlawful for him to marry his brother's wife, Herodias." }
+            },
+            {
+                front: { icon: "🔒", title: "Consequence of Truth", content: "What happened when John confronted Herod?" },
+                back: { icon: "⛓️", title: "Imprisoned", content: "Herod had John imprisoned in the fortress of Machaerus for speaking against his marriage." }
+            },
+            {
+                front: { icon: "❓", title: "Prison Doubt", content: "What question did John send to Jesus from prison?" },
+                back: { icon: "🤔", title: "Are You the One?", content: "John sent disciples to ask Jesus, 'Are you the one who is to come, or should we expect another?'" }
+            },
+            {
+                front: { icon: "💃", title: "Tragic End", content: "How did John the Baptist die?" },
+                back: { icon: "⚔️", title: "Beheaded by Herod", content: "Herodias' daughter danced for Herod, who promised her anything. She asked for John's head on a platter." }
+            },
+            {
+                front: { icon: "🏺", title: "Historical Evidence", content: "What non-biblical source confirms John's existence?" },
+                back: { icon: "📜", title: "Josephus' Writings", content: "The Jewish historian Josephus wrote about John's ministry and death under Herod Antipas." }
+            },
+            {
+                front: { icon: "📖", title: "Life Lesson", content: "What's the main message of John's life?" },
+                back: { icon: "👉", title: "Point Others to Jesus", content: "True leadership means preparing others for success and pointing them toward Jesus, not building our own reputation." }
+            }
+        ];
+
+        let currentCard = 0;
+        let isFlipped = false;
+
+        function updateCard() {
+            const card = flashcards[currentCard];
+            const cardFront = document.getElementById('cardFront');
+            const cardBack = document.getElementById('cardBack');
+            
+            cardFront.innerHTML = `
+                <div class="card-icon">${card.front.icon}</div>
+                <div class="card-title">${card.front.title}</div>
+                <div class="card-content">${card.front.content}</div>
+            `;
+            
+            cardBack.innerHTML = `
+                <div class="card-icon">${card.back.icon}</div>
+                <div class="card-title">${card.back.title}</div>
+                <div class="card-content">${card.back.content}</div>
+            `;
+            
+            document.getElementById('cardCounter').textContent = `Card ${currentCard + 1} of ${flashcards.length}`;
+            document.getElementById('progressFill').style.width = `${((currentCard + 1) / flashcards.length) * 100}%`;
+            
+            document.getElementById('flashCard').classList.remove('flipped');
+            isFlipped = false;
+        }
+
+        function toggleCard() {
+            const card = document.getElementById('flashCard');
+            card.classList.toggle('flipped');
+            isFlipped = !isFlipped;
+        }
+
+        function nextCard() {
+            currentCard = (currentCard + 1) % flashcards.length;
+            updateCard();
+        }
+
+        function previousCard() {
+            currentCard = currentCard === 0 ? flashcards.length - 1 : currentCard - 1;
+            updateCard();
+        }
+
+        function shuffleCards() {
+            for (let i = flashcards.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+            }
+            currentCard = 0;
+            updateCard();
+        }
+
+        document.addEventListener('keydown', function(event) {
+            switch(event.key) {
+                case 'ArrowRight':
+                case ' ':
+                    nextCard();
+                    break;
+                case 'ArrowLeft':
+                    previousCard();
+                    break;
+                case 'ArrowUp':
+                case 'ArrowDown':
+                    toggleCard();
+                    break;
+            }
+        });
+
+        updateCard();
+        console.log('John the Baptist flashcards loaded - Bible Study Hub');
+    </script>
+</body>
+</html>

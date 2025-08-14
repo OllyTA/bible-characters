@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joseph Flash Cards | Bible Study Hub</title>
+    <meta name="description" content="Interactive flashcards about Joseph - from dreams to leadership in Egypt. Learn about resilience, forgiveness, and God's providence through engaging study tools.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .breadcrumb {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(255,255,255,0.5);
+        }
+
+        .breadcrumb a:hover {
+            opacity: 1;
+            border-bottom: 1px solid white;
+        }
+
+        .controls {
+            margin-bottom: 30px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            background: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #667eea;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: #f0f8ff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        .card-container {
+            perspective: 1000px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            width: 400px;
+            height: 300px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+
+        .card-front {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            color: #333;
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #333;
+            transform: rotateY(180deg);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .card-content {
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        .navigation {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .card-counter {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            width: 300px;
+            height: 8px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #4CAF50;
+            transition: width 0.3s ease;
+        }
+
+        .instructions {
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .back-to-home {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                width: 320px;
+                height: 250px;
+            }
+            
+            .card-face {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🌈 Joseph Flash Cards</h1>
+        <p class="subtitle">From Dreams to Leadership</p>
+        <p class="breadcrumb">
+            <a href="../../../index.html">🏠 Bible Study Hub</a> → 
+            <a href="../../../index.html#well-known">Well-Known Characters</a> → 
+            Joseph Flashcards
+        </p>
+    </div>
+
+    <div class="instructions">
+        Click the card to flip it, or use the navigation buttons below
+    </div>
+
+    <div class="controls">
+        <button class="btn" onclick="previousCard()">← Previous</button>
+        <button class="btn" onclick="toggleCard()">Flip Card</button>
+        <button class="btn" onclick="nextCard()">Next →</button>
+        <button class="btn" onclick="shuffleCards()">🔀 Shuffle</button>
+    </div>
+
+    <div class="navigation">
+        <span class="card-counter" id="cardCounter">Card 1 of 18</span>
+    </div>
+
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <div class="card-container">
+        <div class="card" id="flashCard" onclick="toggleCard()">
+            <div class="card-face card-front" id="cardFront">
+                <div class="card-icon">🌈</div>
+                <div class="card-title">Character Trait</div>
+                <div class="card-content">What one word describes Joseph's character?</div>
+            </div>
+            <div class="card-face card-back" id="cardBack">
+                <div class="card-icon">💪</div>
+                <div class="card-title">Resilient</div>
+                <div class="card-content">Joseph bounced back from every setback - slavery, false accusations, prison - maintaining faith and integrity.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="back-to-home">
+        <a href="../../../index.html" class="btn">🏠 Back to Bible Study Hub</a>
+    </div>
+
+    <script>
+        const flashcards = [
+            {
+                front: { icon: "🌈", title: "Character Trait", content: "What one word describes Joseph's character?" },
+                back: { icon: "💪", title: "Resilient", content: "Joseph bounced back from every setback - slavery, false accusations, prison - maintaining faith and integrity." }
+            },
+            {
+                front: { icon: "👨‍👦", title: "Father", content: "Who was Joseph's father?" },
+                back: { icon: "🐑", title: "Jacob (Israel)", content: "Jacob, later renamed Israel, was Joseph's father who favored him above his other sons." }
+            },
+            {
+                front: { icon: "🌈", title: "Famous Gift", content: "What special gift did Joseph's father give him?" },
+                back: { icon: "👘", title: "Coat of Many Colors", content: "Jacob gave Joseph a beautiful, colorful coat that showed he was the favorite son." }
+            },
+            {
+                front: { icon: "😴", title: "Special Ability", content: "What supernatural gift did Joseph have?" },
+                back: { icon: "🔮", title: "Dream Interpretation", content: "God gave Joseph the ability to understand the meaning of dreams, his own and others'." }
+            },
+            {
+                front: { icon: "😡", title: "Family Problem", content: "Why did Joseph's brothers hate him?" },
+                back: { icon: "👑", title: "Jealousy", content: "They were jealous of their father's favoritism and Joseph's dreams about ruling over them." }
+            },
+            {
+                front: { icon: "🕳️", title: "Betrayal", content: "What did Joseph's brothers do to him?" },
+                back: { icon: "⛓️", title: "Sold Him as Slave", content: "They threw him in a pit, then sold him to traders going to Egypt for 20 pieces of silver." }
+            },
+            {
+                front: { icon: "🏠", title: "First Job in Egypt", content: "Who did Joseph work for when he first arrived in Egypt?" },
+                back: { icon: "⚔️", title: "Potiphar", content: "Potiphar, captain of Pharaoh's guard, bought Joseph and put him in charge of his household." }
+            },
+            {
+                front: { icon: "❌", title: "Moral Test", content: "What temptation did Joseph face and resist?" },
+                back: { icon: "🛡️", title: "Potiphar's Wife", content: "Potiphar's wife tried to seduce Joseph, but he refused, saying 'How can I sin against God?'" }
+            },
+            {
+                front: { icon: "🔒", title: "False Accusation", content: "Where did Joseph end up after refusing temptation?" },
+                back: { icon: "⛓️", title: "Prison", content: "Potiphar's wife falsely accused Joseph of assault, landing him in Pharaoh's prison." }
+            },
+            {
+                front: { icon: "🍷", title: "Prison Ministry", content: "Whose dreams did Joseph interpret in prison?" },
+                back: { icon: "🍞", title: "Butler & Baker", content: "Joseph interpreted dreams for Pharaoh's cupbearer (restored) and baker (executed)." }
+            },
+            {
+                front: { icon: "👑", title: "Royal Summons", content: "What brought Joseph before Pharaoh?" },
+                back: { icon: "😴", title: "Pharaoh's Dreams", content: "Pharaoh had troubling dreams that no one could interpret, so the cupbearer remembered Joseph." }
+            },
+            {
+                front: { icon: "🐄", title: "National Crisis", content: "What did Pharaoh's dreams predict?" },
+                back: { icon: "🌾", title: "7 Years Plenty, 7 Years Famine", content: "Seven fat cows and full grain meant abundance, then seven thin cows and empty grain meant famine." }
+            },
+            {
+                front: { icon: "📈", title: "Promotion", content: "What position did Pharaoh give Joseph?" },
+                back: { icon: "💍", title: "Second in Command", content: "Pharaoh made Joseph vizier over all Egypt, second only to Pharaoh himself." }
+            },
+            {
+                front: { icon: "🌾", title: "National Strategy", content: "How did Joseph prepare Egypt for famine?" },
+                back: { icon: "🏪", title: "Stored Grain", content: "During the seven good years, Joseph stored 20% of all grain in warehouses throughout Egypt." }
+            },
+            {
+                front: { icon: "🤝", title: "Family Reunion", content: "Why did Joseph's brothers come to Egypt?" },
+                back: { icon: "🍞", title: "Buy Food", content: "The famine reached Canaan, so Jacob sent his sons to Egypt to buy grain for survival." }
+            },
+            {
+                front: { icon: "😭", title: "Identity Reveal", content: "What did Joseph do when he could no longer contain himself?" },
+                back: { icon: "🤗", title: "Forgave His Brothers", content: "Joseph revealed his identity and forgave his brothers, saying God used their evil for good." }
+            },
+            {
+                front: { icon: "🏺", title: "Archaeological Evidence", content: "What Egyptian site supports Joseph's story?" },
+                back: { icon: "🏛️", title: "Tell el-Dab'a", content: "Excavations show Semitic administrators in Egypt during Joseph's time period." }
+            },
+            {
+                front: { icon: "📖", title: "Life Lesson", content: "What's the main message of Joseph's story?" },
+                back: { icon: "🙏", title: "God Works All Things for Good", content: "'You meant evil against me, but God meant it for good' - Romans 8:28 in action!" }
+            }
+        ];
+
+        let currentCard = 0;
+        let isFlipped = false;
+
+        function updateCard() {
+            const card = flashcards[currentCard];
+            const cardFront = document.getElementById('cardFront');
+            const cardBack = document.getElementById('cardBack');
+            
+            cardFront.innerHTML = `
+                <div class="card-icon">${card.front.icon}</div>
+                <div class="card-title">${card.front.title}</div>
+                <div class="card-content">${card.front.content}</div>
+            `;
+            
+            cardBack.innerHTML = `
+                <div class="card-icon">${card.back.icon}</div>
+                <div class="card-title">${card.back.title}</div>
+                <div class="card-content">${card.back.content}</div>
+            `;
+            
+            document.getElementById('cardCounter').textContent = `Card ${currentCard + 1} of ${flashcards.length}`;
+            document.getElementById('progressFill').style.width = `${((currentCard + 1) / flashcards.length) * 100}%`;
+            
+            document.getElementById('flashCard').classList.remove('flipped');
+            isFlipped = false;
+        }
+
+        function toggleCard() {
+            const card = document.getElementById('flashCard');
+            card.classList.toggle('flipped');
+            isFlipped = !isFlipped;
+        }
+
+        function nextCard() {
+            currentCard = (currentCard + 1) % flashcards.length;
+            updateCard();
+        }
+
+        function previousCard() {
+            currentCard = currentCard === 0 ? flashcards.length - 1 : currentCard - 1;
+            updateCard();
+        }
+
+        function shuffleCards() {
+            for (let i = flashcards.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]];
+            }
+            currentCard = 0;
+            updateCard();
+        }
+
+        document.addEventListener('keydown', function(event) {
+            switch(event.key) {
+                case 'ArrowRight':
+                case ' ':
+                    nextCard();
+                    break;
+                case 'ArrowLeft':
+                    previousCard();
+                    break;
+                case 'ArrowUp':
+                case 'ArrowDown':
+                    toggleCard();
+                    break;
+            }
+        });
+
+        updateCard();
+        console.log('Joseph flashcards loaded - Bible Study Hub');
+    </script>
+</body>
+</html>

@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bible Characters Study - Interactive Profiles & Flashcards | Bible Study Hub</title>
-    <meta name="description" content="Interactive Bible character profiles and flashcards for all ages. Learn about David, Joseph, Ruth, and many more biblical heroes through engaging study tools from Bible Study Hub.">
+    <meta name="description" content="Interactive Bible character profiles and flashcards for all ages. Learn about biblical heroes through engaging study tools from Bible Study Hub.">
     <meta name="keywords" content="Bible study, Bible characters, flashcards, biblical education, Sunday school, family devotions">
-    <link rel="canonical" href="https://bible-study-hub.github.io/bible-characters/">
     <style>
         * {
             margin: 0;
@@ -28,100 +27,135 @@
             padding: 0 20px;
         }
 
-        header {
+        /* Header */
+        .header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            padding: 2rem 0;
-            text-align: center;
+            padding: 1.5rem 0;
             box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        header h1 {
-            font-size: 3rem;
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
             color: #333;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            text-decoration: none;
         }
 
-        header p {
-            font-size: 1.3rem;
-            color: #666;
-            font-style: italic;
+        .search-container {
+            flex: 1;
+            max-width: 400px;
+            position: relative;
         }
 
-        .brand-subtitle {
+        .search-bar {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #667eea;
+            border-radius: 25px;
             font-size: 1rem;
-            color: #888;
-            margin-top: 0.5rem;
+            outline: none;
+            transition: all 0.3s ease;
         }
 
-        .main-nav {
+        .search-bar:focus {
+            border-color: #764ba2;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .stats {
+            text-align: center;
+            color: white;
+            font-size: 1.1rem;
+            margin: 1rem 0;
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
             background: rgba(255, 255, 255, 0.9);
-            padding: 1rem 0;
-            margin: 2rem 0;
             border-radius: 15px;
+            padding: 1rem;
+            margin: 2rem 0;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        .nav-container {
+        .tab-buttons {
             display: flex;
-            justify-content: center;
+            gap: 0.5rem;
             flex-wrap: wrap;
-            gap: 2rem;
+            justify-content: center;
+            margin-bottom: 1rem;
         }
 
-        .nav-link {
+        .tab-btn {
+            padding: 12px 24px;
+            border: none;
+            background: #f8f9fa;
             color: #667eea;
-            text-decoration: none;
+            border-radius: 25px;
+            cursor: pointer;
             font-weight: bold;
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
+            font-size: 1rem;
             transition: all 0.3s ease;
-            border: 2px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .nav-link:hover {
+        .tab-btn:hover {
             background: #667eea;
             color: white;
             transform: translateY(-2px);
+        }
+
+        .tab-btn.active {
+            background: #667eea;
+            color: white;
             box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
         }
 
-        .section {
-            background: rgba(255, 255, 255, 0.95);
-            margin: 2rem 0;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        .tab-content {
+            display: none;
         }
 
-        .section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            color: #333;
+        .tab-content.active {
+            display: block;
         }
 
+        /* Character Grid */
         .character-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 1.5rem;
-            margin-top: 2rem;
+            margin: 2rem 0;
         }
 
         .character-card {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             color: white;
             padding: 1.5rem;
-            border-radius: 12px;
+            border-radius: 15px;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
 
         .character-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
         }
 
         .character-card h3 {
@@ -133,6 +167,7 @@
             font-style: italic;
             margin-bottom: 1rem;
             opacity: 0.9;
+            font-size: 1.1rem;
         }
 
         .character-card .description {
@@ -150,11 +185,14 @@
             background: rgba(255, 255, 255, 0.2);
             color: white;
             border: 2px solid white;
-            padding: 0.6rem 1.2rem;
+            padding: 0.7rem 1.5rem;
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .btn:hover {
@@ -163,27 +201,51 @@
             transform: scale(1.05);
         }
 
-        .intro-section {
-            text-align: center;
-            margin: 3rem 0;
+        .coming-soon {
+            opacity: 0.7;
+            position: relative;
         }
 
-        .intro-section h2 {
+        .coming-soon::after {
+            content: "Coming Soon!";
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #ff6b6b;
             color: white;
-            font-size: 2.8rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* Featured Section */
+        .featured-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .featured-section h2 {
+            font-size: 2.5rem;
+            color: #333;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
-        .intro-section p {
-            color: rgba(255, 255, 255, 0.9);
+        .featured-description {
             font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
             max-width: 800px;
-            margin: 0 auto 2rem;
-            line-height: 1.8;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .features {
+        /* Features Grid */
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
@@ -209,25 +271,8 @@
             font-size: 1.4rem;
         }
 
-        .coming-soon {
-            opacity: 0.7;
-            position: relative;
-        }
-
-        .coming-soon::after {
-            content: "Coming Soon!";
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #ff6b6b;
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
-        footer {
+        /* Footer */
+        .footer {
             background: rgba(0, 0, 0, 0.8);
             color: white;
             text-align: center;
@@ -235,72 +280,103 @@
             margin-top: 3rem;
         }
 
-        footer p {
+        .footer p {
             margin-bottom: 1rem;
         }
 
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: #667eea;
-        }
-
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.2rem;
+            .header-content {
+                flex-direction: column;
+                text-align: center;
             }
-            
-            .nav-container {
+
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            .search-container {
+                width: 100%;
+                max-width: none;
+            }
+
+            .tab-buttons {
                 flex-direction: column;
                 align-items: center;
-                gap: 1rem;
             }
-            
+
+            .tab-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
             .character-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .features {
+
+            .features-grid {
                 grid-template-columns: 1fr;
             }
+        }
+
+        /* Search functionality */
+        .search-results {
+            display: none;
+            background: white;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 200;
+        }
+
+        .search-result {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .search-result:hover {
+            background: #f8f9fa;
+        }
+
+        .search-result:last-child {
+            border-bottom: none;
         }
     </style>
 </head>
 <body>
-    <header>
+    <header class="header">
         <div class="container">
-            <h1>📖 Bible Characters Study</h1>
-            <p>Interactive profiles and flashcards for all ages</p>
-            <p class="brand-subtitle">A Bible Study Hub Resource</p>
+            <div class="header-content">
+                <a href="#" class="logo">📖 Bible Study Hub</a>
+                <div class="search-container">
+                    <input type="text" class="search-bar" placeholder="Search biblical characters..." id="searchInput">
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+            </div>
         </div>
     </header>
 
     <div class="container">
-        <nav class="main-nav">
-            <div class="nav-container">
-                <a href="#well-known" class="nav-link">👑 Well-Known</a>
-                <a href="#lesser-known" class="nav-link">💎 Lesser-Known</a>
-                <a href="#male" class="nav-link">👨 Male Characters</a>
-                <a href="#female" class="nav-link">👩 Female Characters</a>
-                <a href="#study-guides" class="nav-link">📚 Study Guides</a>
-            </div>
-        </nav>
+        <div class="stats">
+            <strong>5 Characters Available</strong> • 45+ Coming Soon • Interactive Learning for All Ages
+        </div>
 
-        <div class="intro-section">
-            <h2>Discover Biblical Heroes</h2>
-            <p>Explore the lives of remarkable men and women from Scripture through interactive profiles and engaging flashcards. Perfect for personal study, family devotions, Sunday school, or small groups.</p>
+        <div class="featured-section">
+            <h2>🌟 Discover Biblical Heroes</h2>
+            <p class="featured-description">
+                Explore the lives of remarkable men and women from Scripture through interactive profiles and engaging flashcards. 
+                Perfect for personal study, family devotions, Sunday school, or small groups.
+            </p>
             
-            <div class="features">
+            <div class="features-grid">
                 <div class="feature">
                     <div class="feature-icon">🎯</div>
                     <h3>Interactive Learning</h3>
@@ -324,182 +400,314 @@
             </div>
         </div>
 
-        <section id="well-known" class="section">
-            <h2>👑 Well-Known Bible Characters</h2>
-            <div class="character-grid">
-                <div class="character-card">
-                    <h3>👑 King David</h3>
-                    <p class="trait">Heartfelt</p>
-                    <p class="description">The shepherd king with a heart for God who wrote psalms and established Jerusalem</p>
-                    <div class="card-buttons">
-                        <a href="characters/well-known/david/profile.html" class="btn">📋 Profile</a>
-                        <a href="characters/well-known/david/flashcards.html" class="btn">🎯 Flashcards</a>
-                    </div>
-                </div>
+        <div class="nav-tabs">
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="showTab('well-known')">
+                    👑 Well-Known Characters
+                </button>
+                <button class="tab-btn" onclick="showTab('lesser-known')">
+                    💎 Lesser-Known Characters
+                </button>
+                <button class="tab-btn" onclick="showTab('male')">
+                    👨 Male Characters
+                </button>
+                <button class="tab-btn" onclick="showTab('female')">
+                    👩 Female Characters
+                </button>
+                <button class="tab-btn" onclick="showTab('study-guides')">
+                    📚 Study Resources
+                </button>
+            </div>
 
-                <div class="character-card">
-                    <h3>👘 Joseph</h3>
-                    <p class="trait">Resilient</p>
-                    <p class="description">From favorite son to slave to ruler of Egypt - a story of God's providence</p>
-                    <div class="card-buttons">
-                        <a href="characters/well-known/joseph/profile.html" class="btn">📋 Profile</a>
-                        <a href="characters/well-known/joseph/flashcards.html" class="btn">🎯 Flashcards</a>
+            <!-- Well-Known Characters Tab -->
+            <div id="well-known" class="tab-content active">
+                <div class="character-grid">
+                    <div class="character-card">
+                        <h3>👑 King David</h3>
+                        <p class="trait">Heartfelt</p>
+                        <p class="description">The shepherd king with a heart for God who wrote psalms and established Jerusalem</p>
+                        <div class="card-buttons">
+                            <a href="characters/well-known/david/profile.html" class="btn">📋 Profile</a>
+                            <a href="characters/well-known/david/flashcards.html" class="btn">🎯 Flashcards</a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="character-card">
-                    <h3>🌾 Ruth</h3>
-                    <p class="trait">Loyal</p>
-                    <p class="description">A Moabite woman whose loyalty led her into the lineage of Christ</p>
-                    <div class="card-buttons">
-                        <a href="characters/well-known/ruth/profile.html" class="btn">📋 Profile</a>
-                        <a href="characters/well-known/ruth/flashcards.html" class="btn">🎯 Flashcards</a>
+                    <div class="character-card">
+                        <h3>👘 Joseph</h3>
+                        <p class="trait">Resilient</p>
+                        <p class="description">From favorite son to slave to ruler of Egypt - a story of God's providence</p>
+                        <div class="card-buttons">
+                            <a href="characters/well-known/joseph/profile.html" class="btn">📋 Profile</a>
+                            <a href="characters/well-known/joseph/flashcards.html" class="btn">🎯 Flashcards</a>
+                        </div>
                     </div>
-                </div>
 
-               <div class="character-card">
-                  <h3>🌊 John the Baptist</h3>
-                  <p class="trait">Forerunner</p>
-                  <p class="description">The bold prophet who prepared the way for Jesus Christ</p>
-                  <div class="card-buttons">
-                      <a href="characters/well-known/john-baptist/profile.html" class="btn">📋 Profile</a>
-                      <a href="characters/well-known/john-baptist/flashcards.html" class="btn">🎯 Flashcards</a>
-                 </div>
-              </div>
-                
-                <div class="character-card coming-soon">
-                    <h3>⚡ Moses</h3>
-                    <p class="trait">Deliverer</p>
-                    <p class="description">The great lawgiver who led Israel out of Egyptian bondage</p>
-                    <div class="card-buttons">
-                        <a href="#" class="btn">📋 Profile</a>
-                        <a href="#" class="btn">🎯 Flashcards</a>
+                    <div class="character-card">
+                        <h3>🌾 Ruth</h3>
+                        <p class="trait">Loyal</p>
+                        <p class="description">A Moabite woman whose loyalty led her into the lineage of Christ</p>
+                        <div class="card-buttons">
+                            <a href="characters/well-known/ruth/profile.html" class="btn">📋 Profile</a>
+                            <a href="characters/well-known/ruth/flashcards.html" class="btn">🎯 Flashcards</a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="character-card coming-soon">
-                    <h3>⭐ Abraham</h3>
-                    <p class="trait">Faithful</p>
-                    <p class="description">The father of faith who believed God's impossible promises</p>
-                    <div class="card-buttons">
-                        <a href="#" class="btn">📋 Profile</a>
-                        <a href="#" class="btn">🎯 Flashcards</a>
+                    <div class="character-card">
+                        <h3>🌊 John the Baptist</h3>
+                        <p class="trait">Forerunner</p>
+                        <p class="description">The bold prophet who prepared the way for Jesus Christ</p>
+                        <div class="card-buttons">
+                            <a href="characters/well-known/john-baptist/profile.html" class="btn">📋 Profile</a>
+                            <a href="characters/well-known/john-baptist/flashcards.html" class="btn">🎯 Flashcards</a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="character-card coming-soon">
-                    <h3>👸 Esther</h3>
-                    <p class="trait">Courageous</p>
-                    <p class="description">The queen who risked everything to save her people</p>
-                    <div class="card-buttons">
-                        <a href="#" class="btn">📋 Profile</a>
-                        <a href="#" class="btn">🎯 Flashcards</a>
+                    <div class="character-card coming-soon">
+                        <h3>⚡ Moses</h3>
+                        <p class="trait">Deliverer</p>
+                        <p class="description">The great lawgiver who led Israel out of Egyptian bondage</p>
+                        <div class="card-buttons">
+                            <a href="#" class="btn">📋 Profile</a>
+                            <a href="#" class="btn">🎯 Flashcards</a>
+                        </div>
+                    </div>
+
+                    <div class="character-card coming-soon">
+                        <h3>⭐ Abraham</h3>
+                        <p class="trait">Faithful</p>
+                        <p class="description">The father of faith who believed God's impossible promises</p>
+                        <div class="card-buttons">
+                            <a href="#" class="btn">📋 Profile</a>
+                            <a href="#" class="btn">🎯 Flashcards</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <section id="lesser-known" class="section">
-            <h2>💎 Lesser-Known Bible Characters</h2>
-            <div class="character-grid">
-                <div class="character-card coming-soon">
-                    <h3>⚔️ Gideon</h3>
-                    <p class="trait">Unlikely Warrior</p>
-                    <p class="description">A fearful farmer who became a mighty judge of Israel</p>
-                    <div class="card-buttons">
-                        <a href="#" class="btn">📋 Profile</a>
-                        <a href="#" class="btn">🎯 Flashcards</a>
+            <!-- Lesser-Known Characters Tab -->
+            <div id="lesser-known" class="tab-content">
+                <div class="character-grid">
+                    <div class="character-card">
+                        <h3>⚔️ Gideon</h3>
+                        <p class="trait">Unlikely Warrior</p>
+                        <p class="description">A fearful farmer who became a mighty judge of Israel</p>
+                        <div class="card-buttons">
+                            <a href="characters/lesser-known/gideon/profile.html" class="btn">📋 Profile</a>
+                            <a href="characters/lesser-known/gideon/flashcards.html" class="btn">🎯 Flashcards</a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="character-card coming-soon">
-                    <h3>🏠 Rahab</h3>
-                    <p class="trait">Redeemed</p>
-                    <p class="description">A prostitute who became a hero of faith and ancestor of Christ</p>
-                    <div class="card-buttons">
-                        <a href="#" class="btn">📋 Profile</a>
-                        <a href="#" class="btn">🎯 Flashcards</a>
+                    <div class="character-card coming-soon">
+                        <h3>🏠 Rahab</h3>
+                        <p class="trait">Redeemed</p>
+                        <p class="description">A prostitute who became a hero of faith and ancestor of Christ</p>
+                        <div class="card-buttons">
+                            <a href="#" class="btn">📋 Profile</a>
+                            <a href="#" class="btn">🎯 Flashcards</a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="character-card coming-soon">
-                    <h3>🤝 Barnabas</h3>
-                    <p class="trait">Encourager</p>
-                    <p class="description">The apostle who specialized in building up others</p>
-                    <div class="card-buttons">
-                        <a href="#" class="btn">📋 Profile</a>
-                        <a href="#" class="btn">🎯 Flashcards</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="study-guides" class="section">
-            <h2>📚 Study Guides & Resources</h2>
-            <div class="character-grid">
-                <div class="character-card coming-soon">
-                    <h3>👑 Leadership Lessons</h3>
-                    <p class="description">Learn leadership principles from biblical kings and judges</p>
-                    <div class="card-buttons">
-                        <a href="#" class="btn">📖 Study Guide</a>
-                    </div>
-                </div>
-
-                <div class="character-card coming-soon">
-                    <h3>👩 Women of Faith</h3>
-                    <p class="description">Inspiring stories of biblical women who changed history</p>
-                    <div class="card-buttons">
-                        <a href="#" class="btn">📖 Study Guide</a>
-                    </div>
-                </div>
-
-                <div class="character-card coming-soon">
-                    <h3>🏺 Archaeological Evidence</h3>
-                    <p class="description">Discover how archaeology confirms biblical accounts</p>
-                    <div class="card-buttons">
-                        <a href="#" class="btn">🔍 Explore</a>
+                    <div class="character-card coming-soon">
+                        <h3>🤝 Barnabas</h3>
+                        <p class="trait">Encourager</p>
+                        <p class="description">The apostle who specialized in building up others</p>
+                        <div class="card-buttons">
+                            <a href="#" class="btn">📋 Profile</a>
+                            <a href="#" class="btn">🎯 Flashcards</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+
+            <!-- Male Characters Tab -->
+            <div id="male" class="tab-content">
+                <div class="character-grid">
+                    <div class="character-card">
+                        <h3>👑 King David</h3>
+                        <p class="trait">Heartfelt</p>
+                        <p class="description">The shepherd king with a heart for God</p>
+                        <div class="card-buttons">
+                            <a href="characters/well-known/david/profile.html" class="btn">📋 Profile</a>
+                            <a href="characters/well-known/david/flashcards.html" class="btn">🎯 Flashcards</a>
+                        </div>
+                    </div>
+
+                    <div class="character-card">
+                        <h3>👘 Joseph</h3>
+                        <p class="trait">Resilient</p>
+                        <p class="description">From favorite son to ruler of Egypt</p>
+                        <div class="card-buttons">
+                            <a href="characters/well-known/joseph/profile.html" class="btn">📋 Profile</a>
+                            <a href="characters/well-known/joseph/flashcards.html" class="btn">🎯 Flashcards</a>
+                        </div>
+                    </div>
+
+                    <div class="character-card">
+                        <h3>🌊 John the Baptist</h3>
+                        <p class="trait">Forerunner</p>
+                        <p class="description">The bold prophet who prepared the way</p>
+                        <div class="card-buttons">
+                            <a href="characters/well-known/john-baptist/profile.html" class="btn">📋 Profile</a>
+                            <a href="characters/well-known/john-baptist/flashcards.html" class="btn">🎯 Flashcards</a>
+                        </div>
+                    </div>
+
+                    <div class="character-card">
+                        <h3>⚔️ Gideon</h3>
+                        <p class="trait">Unlikely Warrior</p>
+                        <p class="description">A fearful farmer turned mighty judge</p>
+                        <div class="card-buttons">
+                            <a href="characters/lesser-known/gideon/profile.html" class="btn">📋 Profile</a>
+                            <a href="characters/lesser-known/gideon/flashcards.html" class="btn">🎯 Flashcards</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Female Characters Tab -->
+            <div id="female" class="tab-content">
+                <div class="character-grid">
+                    <div class="character-card">
+                        <h3>🌾 Ruth</h3>
+                        <p class="trait">Loyal</p>
+                        <p class="description">A Moabite woman whose loyalty led her into Christ's lineage</p>
+                        <div class="card-buttons">
+                            <a href="characters/well-known/ruth/profile.html" class="btn">📋 Profile</a>
+                            <a href="characters/well-known/ruth/flashcards.html" class="btn">🎯 Flashcards</a>
+                        </div>
+                    </div>
+
+                    <div class="character-card coming-soon">
+                        <h3>👸 Esther</h3>
+                        <p class="trait">Courageous</p>
+                        <p class="description">The queen who risked everything to save her people</p>
+                        <div class="card-buttons">
+                            <a href="#" class="btn">📋 Profile</a>
+                            <a href="#" class="btn">🎯 Flashcards</a>
+                        </div>
+                    </div>
+
+                    <div class="character-card coming-soon">
+                        <h3>🏠 Rahab</h3>
+                        <p class="trait">Redeemed</p>
+                        <p class="description">A prostitute who became a hero of faith</p>
+                        <div class="card-buttons">
+                            <a href="#" class="btn">📋 Profile</a>
+                            <a href="#" class="btn">🎯 Flashcards</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Study Resources Tab -->
+            <div id="study-guides" class="tab-content">
+                <div class="character-grid">
+                    <div class="character-card coming-soon">
+                        <h3>👑 Leadership Lessons</h3>
+                        <p class="description">Learn leadership principles from biblical kings and judges</p>
+                        <div class="card-buttons">
+                            <a href="#" class="btn">📖 Study Guide</a>
+                        </div>
+                    </div>
+
+                    <div class="character-card coming-soon">
+                        <h3>👩 Women of Faith</h3>
+                        <p class="description">Inspiring stories of biblical women who changed history</p>
+                        <div class="card-buttons">
+                            <a href="#" class="btn">📖 Study Guide</a>
+                        </div>
+                    </div>
+
+                    <div class="character-card coming-soon">
+                        <h3>🏺 Archaeological Evidence</h3>
+                        <p class="description">Discover how archaeology confirms biblical accounts</p>
+                        <div class="card-buttons">
+                            <a href="#" class="btn">🔍 Explore</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <footer>
+    <footer class="footer">
         <div class="container">
             <p>&copy; 2025 Bible Study Hub. Created for the glory of God and the edification of His people.</p>
             <p>Built with love for Bible students everywhere 💝</p>
-            <div class="social-links">
-                <a href="https://github.com/bible-study-hub" title="GitHub Profile">⭐</a>
-                <a href="mailto:contact@biblestudyhub.org" title="Contact Us">✉️</a>
-                <a href="#" title="Share This Resource">🔗</a>
-            </div>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+        // Tab functionality
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
             });
+
+            // Remove active class from all buttons
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+        
+        const characters = [
+            { name: 'David', trait: 'Heartfelt', url: 'characters/well-known/david/' },
+            { name: 'Joseph', trait: 'Resilient', url: 'characters/well-known/joseph/' },
+            { name: 'Ruth', trait: 'Loyal', url: 'characters/well-known/ruth/' },
+            { name: 'John the Baptist', trait: 'Forerunner', url: 'characters/well-known/john-baptist/' },
+            { name: 'Gideon', trait: 'Unlikely Warrior', url: 'characters/lesser-known/gideon/' }
+        ];
+
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            
+            if (query.length === 0) {
+                searchResults.style.display = 'none';
+                return;
+            }
+
+            const filteredCharacters = characters.filter(char => 
+                char.name.toLowerCase().includes(query) || 
+                char.trait.toLowerCase().includes(query)
+            );
+
+            if (filteredCharacters.length > 0) {
+                searchResults.innerHTML = filteredCharacters.map(char => `
+                    <div class="search-result" onclick="window.location.href='${char.url}flashcards.html'">
+                        <strong>${char.name}</strong> - ${char.trait}
+                    </div>
+                `).join('');
+                searchResults.style.display = 'block';
+            } else {
+                searchResults.innerHTML = '<div class="search-result">No characters found</div>';
+                searchResults.style.display = 'block';
+            }
         });
 
-        // Add subtle parallax effect to background
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.5;
-            document.body.style.backgroundPosition = `center ${rate}px`;
+        // Close search results when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!searchInput.contains(event.target) && !searchResults.contains(event.target)) {
+                searchResults.style.display = 'none';
+            }
         });
 
-        // Track site visits (placeholder for future analytics)
-        console.log('Bible Study Hub - Bible Characters loaded successfully!');
+        // Smooth scrolling for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Bible Study Hub loaded successfully!');
+        });
     </script>
 </body>
-</html>    
+</html>

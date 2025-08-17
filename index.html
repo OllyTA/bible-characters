@@ -686,8 +686,22 @@
 
             if (filteredCharacters.length > 0) {
                 searchResults.innerHTML = filteredCharacters.map(char => `
-                    <div class="search-result" onclick="window.location.href='${char.url}flashcards.html'">
-                        <strong>${char.name}</strong> - ${char.trait}
+                    <div class="search-result">
+                        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                            <div>
+                                <strong>${char.name}</strong> - ${char.trait}
+                            </div>
+                            <div style="display: flex; gap: 8px;">
+                                <button onclick="window.location.href='${char.url}profile.html'" 
+                                        style="background: #667eea; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">
+                                    📋 Profile
+                                </button>
+                                <button onclick="window.location.href='${char.url}flashcards.html'" 
+                                        style="background: #f093fb; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">
+                                    🎯 Cards
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 `).join('');
                 searchResults.style.display = 'block';

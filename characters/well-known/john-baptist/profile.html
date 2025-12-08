@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>John the Baptist - Biblical Character Profile | Bible Study Hub</title>
-    <meta name="description" content="Comprehensive profile of John the Baptist - the forerunner who prepared the way for Jesus. Includes archaeological evidence, leadership lessons, and practical applications.">
+    <meta name="description" content="Comprehensive profile of John the Baptist with complete Bible references, archaeological evidence, and practical applications.">
     <style>
         * {
             margin: 0;
@@ -95,6 +95,50 @@
             color: #0083b0;
         }
 
+        /* NEW: Bible References Styling */
+        .bible-refs {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #00b4db;
+        }
+
+        .bible-refs h3 {
+            color: #0083b0;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .refs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .ref-category {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 180, 219, 0.2);
+        }
+
+        .ref-category strong {
+            color: #0083b0;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .ref-category ul {
+            margin-top: 0.5rem;
+            padding-left: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .ref-category li {
+            margin-bottom: 0.3rem;
+            line-height: 1.5;
+        }
+
         .section {
             margin-bottom: 2rem;
             padding: 1.5rem;
@@ -107,9 +151,6 @@
             color: #0083b0;
             font-size: 1.8rem;
             margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         .section h3 {
@@ -126,14 +167,6 @@
             padding-left: 1.5rem;
         }
 
-        .highlight-box {
-            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-            padding: 1rem;
-            border-radius: 8px;
-            border-left: 4px solid #ff9800;
-            margin: 1rem 0;
-        }
-
         .memory-verse {
             background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
             padding: 1.5rem;
@@ -148,17 +181,7 @@
         .memory-verse .verse {
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
-        }
-
-        .call-to-action {
-            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 4px solid #00bcd4;
-        }
-
-        .call-to-action h3 {
-            color: #00838f;
+            font-weight: bold;
         }
 
         .navigation {
@@ -196,7 +219,7 @@
                 font-size: 2.2rem;
             }
             
-            .info-grid {
+            .info-grid, .refs-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -241,6 +264,81 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- NEW BIBLE REFERENCES SECTION -->
+            <div class="bible-refs">
+                <h3>📖 Complete Bible References</h3>
+                <div class="refs-grid">
+                    <div class="ref-category">
+                        <strong>Birth & Early Life:</strong>
+                        <ul>
+                            <li>Luke 1:5-25 (Birth announcement to Zechariah)</li>
+                            <li>Luke 1:39-45 (Mary visits Elizabeth)</li>
+                            <li>Luke 1:57-66 (Birth and naming)</li>
+                            <li>Luke 1:67-80 (Zechariah's prophecy)</li>
+                        </ul>
+                    </div>
+                    <div class="ref-category">
+                        <strong>Ministry Begins:</strong>
+                        <ul>
+                            <li>Matthew 3:1-12 (Preaching in wilderness)</li>
+                            <li>Mark 1:1-8 (Preparing the way)</li>
+                            <li>Luke 3:1-20 (Ministry and teachings)</li>
+                            <li>John 1:6-8, 19-28 (First testimony)</li>
+                        </ul>
+                    </div>
+                    <div class="ref-category">
+                        <strong>Baptism of Jesus:</strong>
+                        <ul>
+                            <li>Matthew 3:13-17 (Jesus comes to Jordan)</li>
+                            <li>Mark 1:9-11 (Jesus baptized)</li>
+                            <li>Luke 3:21-22 (Holy Spirit descends)</li>
+                            <li>John 1:29-34 ("Behold the Lamb of God")</li>
+                        </ul>
+                    </div>
+                    <div class="ref-category">
+                        <strong>Testimony About Jesus:</strong>
+                        <ul>
+                            <li>John 1:35-37 (Disciples follow Jesus)</li>
+                            <li>John 3:22-36 ("He must increase")</li>
+                            <li>John 5:33-35 (Jesus testifies about John)</li>
+                        </ul>
+                    </div>
+                    <div class="ref-category">
+                        <strong>Confronting Herod:</strong>
+                        <ul>
+                            <li>Matthew 14:3-4 (Rebukes Herod)</li>
+                            <li>Mark 6:17-18 (Marriage confrontation)</li>
+                            <li>Luke 3:19-20 (Imprisoned by Herod)</li>
+                        </ul>
+                    </div>
+                    <div class="ref-category">
+                        <strong>Doubt & Reassurance:</strong>
+                        <ul>
+                            <li>Matthew 11:2-6 (Question from prison)</li>
+                            <li>Luke 7:18-23 (Jesus' answer)</li>
+                            <li>Matthew 11:7-19 (Jesus praises John)</li>
+                            <li>Luke 7:24-35 (Greatest born of women)</li>
+                        </ul>
+                    </div>
+                    <div class="ref-category">
+                        <strong>Death & Martyrdom:</strong>
+                        <ul>
+                            <li>Matthew 14:6-12 (Beheading by Herod)</li>
+                            <li>Mark 6:21-29 (Herodias' revenge)</li>
+                            <li>Matthew 14:12 (Disciples bury body)</li>
+                        </ul>
+                    </div>
+                    <div class="ref-category">
+                        <strong>Old Testament Prophecies:</strong>
+                        <ul>
+                            <li>Isaiah 40:3 ("Voice in the wilderness")</li>
+                            <li>Malachi 3:1 (Messenger before Messiah)</li>
+                            <li>Malachi 4:5-6 (Elijah will come)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="section">
@@ -281,81 +379,6 @@
         </div>
 
         <div class="section">
-            <h2>👑 Leadership & Mentorship Style</h2>
-            
-            <h3>🔥 Prophetic Boldness</h3>
-            <ul>
-                <li>Spoke truth regardless of personal cost or social pressure</li>
-                <li>Confronted both religious leaders and political authorities with equal courage</li>
-                <li>Used vivid, memorable language that cut to the heart of issues</li>
-            </ul>
-
-            <h3>🙏 Humble Purpose</h3>
-            <ul>
-                <li>Consistently pointed people away from himself toward Jesus</li>
-                <li>Famously said "He must increase, I must decrease"</li>
-                <li>Refused to accept worship or honor that belonged to Christ alone</li>
-            </ul>
-
-            <h3>📚 Practical Teaching</h3>
-            <ul>
-                <li>Gave specific, actionable instructions for righteous living</li>
-                <li>Addressed different groups with relevant applications</li>
-                <li>Connected spiritual truth to everyday behavior and attitudes</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>🎯 Significant Events</h2>
-            <ul>
-                <li>His miraculous birth announcement to his father Zechariah in the temple</li>
-                <li>Beginning his public ministry in the wilderness around age 30</li>
-                <li>Baptizing multitudes in the Jordan River, calling them to repentance</li>
-                <li>The baptism of Jesus and God's public affirmation of His Son</li>
-                <li>Sending disciples to ask Jesus if He was truly the Messiah</li>
-                <li>Confronting King Herod about his unlawful marriage to Herodias</li>
-                <li>His imprisonment and eventual beheading at Herod's birthday feast</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>🏆 His Accomplishments</h2>
-            <ul>
-                <li>Prepared the way for Jesus' ministry through widespread revival</li>
-                <li>Established baptism as a Christian practice and symbol</li>
-                <li>Created the first large-scale expectation for the Messiah in centuries</li>
-                <li>Trained disciples who became Jesus' first followers</li>
-                <li>Demonstrated unwavering integrity even unto death</li>
-                <li>Fulfilled multiple Old Testament prophecies about the Messiah's forerunner</li>
-                <li>Showed that effective ministry doesn't require formal religious training</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>❌ His Mistakes & Character Flaws</h2>
-            <ul>
-                <li>Moments of doubt about Jesus' identity while in prison</li>
-                <li>Perhaps excessive harshness in his preaching style that may have alienated some</li>
-                <li>Possible impatience with God's timing during his imprisonment</li>
-                <li>Limited understanding of the full nature of Jesus' mission</li>
-                <li>His followers sometimes competed with Jesus' disciples rather than uniting</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>✝️ Christ Connection</h2>
-            <p>John perfectly fulfills the role of forerunner to Christ:</p>
-            <ul>
-                <li>His birth announcements parallel Jesus' (both miraculous, involving angels)</li>
-                <li>His ministry of preparation parallels Christ's ministry of fulfillment</li>
-                <li>His baptism with water points to Jesus' baptism with the Holy Spirit</li>
-                <li>His message of repentance prepares hearts for Jesus' message of grace</li>
-                <li>His wilderness ministry echoes Israel's wilderness experience</li>
-                <li>His death as a martyr foreshadows Jesus' sacrificial death</li>
-            </ul>
-        </div>
-
-        <div class="section">
             <h2>🎓 Lessons We Can Learn</h2>
             <ul>
                 <li>God can use our unique background and circumstances for His purposes</li>
@@ -369,118 +392,19 @@
         </div>
 
         <div class="section">
-            <h2>🎯 How to Apply These Lessons</h2>
-            
-            <h3>👶 For Children (Ages 5-12)</h3>
-            <ul>
-                <li>Be willing to tell others about Jesus even when it's hard</li>
-                <li>Sometimes God asks us to do things that seem different or unusual</li>
-                <li>It's important to prepare our hearts for worship and Bible study</li>
-                <li>Always point friends toward Jesus when they have questions about God</li>
-            </ul>
-
-            <h3>🧑 For Teens (Ages 13-18)</h3>
-            <ul>
-                <li>Don't be afraid to stand out for your faith, even if others think you're weird</li>
-                <li>Use your unique personality and gifts to serve God's purposes</li>
-                <li>Practice spiritual disciplines that prepare your heart for God's work</li>
-                <li>Be humble about your role while being bold about God's truth</li>
-            </ul>
-
-            <h3>👨‍👩‍👧‍👦 For Adults</h3>
-            <ul>
-                <li>Regularly examine whether you're pointing people toward Christ or yourself</li>
-                <li>Embrace the role of preparing others for greater ministry opportunities</li>
-                <li>Maintain integrity in your witness regardless of personal cost</li>
-                <li>Balance boldness in proclamation with humility in spirit</li>
-                <li>Trust God's purposes even when circumstances seem contrary to His plan</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>🤔 Self-Reflection Questions</h2>
-            
-            <h3>Personal Character</h3>
-            <ul>
-                <li>Am I more concerned with building my own reputation or pointing others to Jesus?</li>
-                <li>How do I respond when God's timing doesn't match my expectations?</li>
-                <li>Do I have the courage to speak truth even when it's unpopular or costly?</li>
-            </ul>
-
-            <h3>Relationships & Leadership</h3>
-            <ul>
-                <li>Am I preparing others for greater things, or trying to keep them dependent on me?</li>
-                <li>How well do I balance boldness and humility in my interactions?</li>
-                <li>Do I compete with other believers or celebrate their success?</li>
-            </ul>
-
-            <h3>Spiritual Growth</h3>
-            <ul>
-                <li>What spiritual disciplines help me prepare my heart for God's work?</li>
-                <li>How do I handle seasons of doubt or confusion about God's plan?</li>
-                <li>Am I willing to be faithful in obscurity if that's where God calls me?</li>
-            </ul>
-        </div>
-
-        <div class="call-to-action">
-            <h2>🚀 Call to Action</h2>
-            
-            <h3>This Week</h3>
-            <ul>
-                <li>Identify one person you can encourage in their faith journey</li>
-                <li>Practice bold but humble witness in a conversation about faith</li>
-                <li>Spend time in prayer asking God to prepare your heart for His purposes</li>
-            </ul>
-
-            <h3>This Month</h3>
-            <ul>
-                <li>Develop a spiritual discipline that prepares you for ministry</li>
-                <li>Look for opportunities to "prepare the way" for someone else's ministry</li>
-                <li>Practice pointing people toward Jesus rather than seeking recognition</li>
-            </ul>
-
-            <h3>Long-term Commitment</h3>
-            <ul>
-                <li>Commit to being a "forerunner" in your family, workplace, or community</li>
-                <li>Develop courage to speak truth in love regardless of personal cost</li>
-                <li>Make "He must increase, I must decrease" a life motto</li>
-            </ul>
-        </div>
-
-        <div class="section">
             <h2>🏺 Archaeological Evidence</h2>
-            
             <h3>Historical Confirmation</h3>
             <ul>
                 <li><strong>Josephus' Account:</strong> First-century historian Josephus confirms John's ministry and death under Herod Antipas</li>
                 <li><strong>Machaerus Fortress:</strong> Archaeological site where John was likely imprisoned and executed</li>
                 <li><strong>Jordan River Baptismal Sites:</strong> Multiple locations with first-century evidence of ritual washing</li>
-            </ul>
-
-            <h3>Supporting Evidence</h3>
-            <ul>
                 <li><strong>Qumran Community:</strong> Dead Sea Scrolls show ascetic Jewish groups practicing baptism in John's era</li>
-                <li><strong>Herodian Architecture:</strong> Remains of Herod's palaces and fortresses confirm the biblical political context</li>
-                <li><strong>First-Century Judean Desert:</strong> Archaeological evidence of wilderness communities and hermetic practices</li>
             </ul>
-
-            <h3>Modern Location</h3>
+            <h3>Modern Locations</h3>
             <ul>
                 <li><strong>Jordan River:</strong> Multiple traditional baptismal sites near Jericho and Bethany Beyond Jordan</li>
                 <li><strong>Machaerus, Jordan:</strong> Fortress ruins where John was imprisoned (east of Dead Sea)</li>
                 <li><strong>Ein Karem, Israel:</strong> Traditional birthplace of John the Baptist</li>
-            </ul>
-        </div>
-
-        <div class="highlight-box">
-            <h3>💡 Did You Know?</h3>
-            <ul>
-                <li>John's father Zechariah was struck mute for nearly a year due to his doubt</li>
-                <li>John's unusual diet of locusts and honey was actually nutritious and readily available</li>
-                <li>The Gospels record more of Jesus' words about John than John's own recorded words</li>
-                <li>John's ministry lasted only about 18 months but had nationwide impact</li>
-                <li>Some of John's disciples became Jesus' followers, including Andrew</li>
-                <li>John is the only person other than Jesus whose birth was announced by angels</li>
             </ul>
         </div>
 
@@ -490,7 +414,7 @@
         </div>
 
         <div class="navigation">
-            <a href="../flashcards.html" class="btn">🎯 John's Flashcards</a>
+            <a href="flashcards.html" class="btn">🎯 John's Flashcards</a>
             <a href="../../../index.html" class="btn">🏠 Back to Bible Study Hub</a>
             <a href="../../../index.html#well-known" class="btn">👑 More Well-Known Characters</a>
         </div>

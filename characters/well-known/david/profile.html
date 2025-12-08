@@ -1,1 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King David - Biblical Character Profile | Bible Study Hub</title>
+    <meta name="description" content="Comprehensive profile of King David with complete Bible references, archaeological evidence, and practical applications.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .breadcrumb {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            color: #777;
+        }
+
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            border-bottom: 1px dotted #667eea;
+        }
+
+        .breadcrumb a:hover {
+            border-bottom: 1px solid #667eea;
+        }
+
+        .basic-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border-left: 5px solid #667eea;
+        }
+
+        .basic-info h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .info-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .bible-refs {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #667eea;
+        }
+
+        .bible-refs h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .refs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .ref-category {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .ref-category strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .ref-category ul {
+            margin-top: 0.5rem;
+            padding-left: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .ref-category li {
+            margin-bottom: 0.3rem;
+            line-height: 1.5;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .section h3 {
+            color: #667eea;
+            font-size: 1.3rem;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .section p, .section li {
+            margin-bottom: 0.8rem;
+        }
+
+        .section ul {
+            padding-left: 1.5rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+            margin: 1rem 0;
+        }
+
+        .memory-verse {
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            font-style: italic;
+            font-size: 1.1rem;
+            border-left: 4px solid #4caf50;
+            margin: 2rem 0;
+        }
+
+        .memory-verse .verse {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .call-to-action {
+            background: linear-gradient(135deg, #e1f5fe 0%, #b3e5fc 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #00bcd4;
+        }
+
+        .call-to-action h3 {
+            color: #00838f;
+        }
+
+        .navigation {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .btn {
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+                margin: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .info-grid, .refs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>👑 King David</h1>
+            <p class="subtitle">A Man After God's Own Heart</p>
+        </div>
+
+        <div class="breadcrumb">
+            <a href="../../../index.html">🏠 Bible Study Hub</a> → 
+            <a href="../../../index.html#well-known">Well-Known Characters</a> → 
+            King David Profile
+        </div>
+
+        <div class="basic-info">
+            <h2>📋 Basic Information</h2>
+            <div class="info-grid">
+                <div>
+                    <div class="info-item">
+                        <span class="info-label">Name:</span> David (meaning "beloved")
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Parents:</span> Jesse and unnamed mother
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Symbol:</span> 👑 Crown or ⚔️ Slingshot
+                    </div>
+                </div>
+                <div>
+                    <div class="info-item">
+                        <span class="info-label">Siblings:</span> 7 older brothers
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Character Trait:</span> Heartfelt
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Testament:</span> Old Testament
+                    </div>
+                </div>
+            </div>
+            
+            <!-- COMPLETE BIBLE REFERENCES SECTION -->
+            <div class="bible-refs">
+                <h3>📖 Complete Bible References</h3>
+                <div class="refs-grid">
+                    <div class="ref-category">
+                        <strong>Early Life & Anointing:</strong>
+                        <ul>
+                            <li>1 Samuel 16:1-13 (Anointed by Samuel)</li>
+                            <li>1 Samuel 16:14-23 (Plays harp for Saul)</li>
+                            <li>1 Samuel 17:1-58 (Defeats Goliath)</li>
+                            <li>1 Samuel 18:1-5 (Jonathan's friendship)</li>
+                        </ul>
+                    </div>
+                    <div class="ref-category">
+                        <strong>Fleeing from Saul:</strong>
+                        <ul>
+                            <li>1 Samuel 18:6-30 (Saul's jealousy begins)</li>
+                            <li>1 Samuel 19-20 (Jonathan helps David)</li>
+                            <li>1 Samuel 21-26 (David's wilderness years)</li>
+                            <li>1 Samuel 24, 26 (Spares Saul's life twice)</li>
+                        </ul>
+                    </div>
+                    <div class="ref-category">
+                        <strong>Becoming King:</strong>
+                        <ul>
+                            <li>2 Samuel 1 (Learns of Saul's death)</li>
+                            <li>2 Samuel 2:1-7 (King over Judah)</li>
+                            <li>2 Samuel 5:1-5 (King over all Israel)</li>
+                            <li>2 Samuel 5:6-16 (Conquers Jerusalem)</li>
+                        </ul>
+                    </div>
+                    <div class="ref-category">
+                        <strong>Ark & Covenant:</strong>
+                        <ul>
+                            <li>2 Samuel 6 (Brings Ark to Jerusalem)</li>
+                            <li>2 Samuel 7 (God's covenant with David)</li>
+                            <li>1 Chronicles 13-16 (Temple worship plans)</li>
+                            <li>Psalm 89 (Covenant promises)</li>
+                        </ul>
+                    </div>
+                    <div class="ref-category">
+                        <strong>Military Victories:</strong>
+                        <ul>
+                            <li>2 Samuel 8 (Defeats surrounding nations)</li>
+                            <li>2 Samuel 10 (Ammonite & Aramean wars)</li>
+                            <li>2 Samuel 12:26-31 (Rabbah captured)</li>
+                            <li>2 Samuel 21:15-22 (Giant battles)</li>
+                        </ul>
+                    </div>
+                    <div class="ref-category">
+                        <strong>Sin with Bathsheba:</strong>
+                        <ul>
+                            <li>2 Samuel 11 (Adultery & murder of Uriah)</li>
+                            <li>2 Samuel 12:1-14 (Nathan's confrontation)</li>
+                            <li>2 Samuel 12:15-25 (Death of child, Solomon born)</li>
+                            <li>Psalm 51 (Repentance psalm)</li>
+                        </ul>
+                    </div>
+                    <div class="ref-category">
+                        <strong>Family Troubles:</strong>
+                        <ul>
+                            <li>2 Samuel 13 (Amnon & Tamar tragedy)</li>
+                            <li>2 Samuel 14-18 (Absalom's rebellion)</li>
+                            <li>2 Samuel 19 (David's return to Jerusalem)</li>
+                            <li>1 Kings 1 (Adonijah's attempted coup)</li>
+                        </ul>
+                    </div>
+                    <div class="ref-category">
+                        <strong>Later Years & Death:</strong>
+                        <ul>
+                            <li>2 Samuel 23:1-7 (David's last words)</li>
+                            <li>2 Samuel 24 (Census & plague)</li>
+                            <li>1 Kings 2:1-11 (Final charge to Solomon)</li>
+                            <li>1 Chronicles 28-29 (Temple preparations)</li>
+                        </ul>
+                    </div>
+                    <div class="ref-category">
+                        <strong>Key Psalms by David:</strong>
+                        <ul>
+                            <li>Psalm 3 (Fleeing from Absalom)</li>
+                            <li>Psalm 18 (Victory song)</li>
+                            <li>Psalm 23 (The Lord is my shepherd)</li>
+                            <li>Psalm 32 (Blessed is he whose sin is forgiven)</li>
+                            <li>Psalm 51 (Have mercy on me, O God)</li>
+                            <li>Psalm 103 (Bless the Lord, O my soul)</li>
+                            <li>Plus 70+ additional psalms</li>
+                        </ul>
+                    </div>
+                    <div class="ref-category">
+                        <strong>Chronicles Account:</strong>
+                        <ul>
+                            <li>1 Chronicles 11-21 (Reign details)</li>
+                            <li>1 Chronicles 22-29 (Temple preparations)</li>
+                            <li>1 Chronicles 23-27 (Kingdom organization)</li>
+                        </ul>
+                    </div>
+                    <div class="ref-category">
+                        <strong>New Testament References:</strong>
+                        <ul>
+                            <li>Matthew 1:1-17 (Jesus' genealogy)</li>
+                            <li>Matthew 22:41-46 (Jesus quotes David)</li>
+                            <li>Acts 2:25-36 (Peter's Pentecost sermon)</li>
+                            <li>Acts 13:22 ("Man after God's heart")</li>
+                            <li>Romans 1:3 (Jesus from David's line)</li>
+                            <li>Hebrews 11:32 (Hero of faith)</li>
+                            <li>Revelation 5:5; 22:16 (Root of David)</li>
+                        </ul>
+                    </div>
+                    <div class="ref-category">
+                        <strong>Prophetic References:</strong>
+                        <ul>
+                            <li>Isaiah 9:6-7 (Son on David's throne)</li>
+                            <li>Isaiah 11:1-10 (Branch from Jesse)</li>
+                            <li>Jeremiah 23:5-6 (Righteous Branch)</li>
+                            <li>Ezekiel 34:23-24 (David my servant)</li>
+                            <li>Amos 9:11 (David's fallen tent restored)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>👶 Facts About Birth & Early Life</h2>
+            <ul>
+                <li>Born in Bethlehem around 1040 BC to Jesse of the tribe of Judah</li>
+                <li>Youngest of eight brothers, often overlooked by his family</li>
+                <li>Worked as a shepherd, watching his father's flocks in the fields</li>
+                <li>Learned to play the harp while tending sheep in solitude</li>
+                <li>Developed courage fighting lions and bears to protect his flock</li>
+                <li>Anointed as future king by Samuel while still a teenager, though his brothers were presented first</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>👤 Who He Was</h2>
+            <ul>
+                <li>Israel's greatest and most beloved king who reigned for 40 years</li>
+                <li>A man described as "after God's own heart" (Acts 13:22)</li>
+                <li>The author of approximately half of the 150 Psalms</li>
+                <li>Ancestor of Jesus Christ through the royal line of Judah</li>
+                <li>A skilled warrior, musician, poet, and leader who unified the nation</li>
+                <li>The establisher of Jerusalem as Israel's eternal capital city</li>
+                <li>The recipient of God's covenant promise of an eternal kingdom</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>⭐ What He Was Known For</h2>
+            <ul>
+                <li>Defeating the Philistine giant Goliath with just a sling and stone</li>
+                <li>Deep, covenant friendship with Jonathan, Saul's son</li>
+                <li>Writing beautiful worship songs (Psalms) that express every human emotion</li>
+                <li>Unifying the twelve tribes of Israel under one powerful kingdom</li>
+                <li>Capturing Jerusalem from the Jebusites and making it Israel's capital</li>
+                <li>Bringing the Ark of the Covenant to Jerusalem with great celebration</li>
+                <li>Dancing before the Lord with all his might in worship</li>
+                <li>His affair with Bathsheba and murder of her husband Uriah</li>
+                <li>Genuine repentance after being confronted by the prophet Nathan</li>
+                <li>Planning and gathering materials for the temple (though Solomon built it)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>👑 Leadership & Mentorship Style</h2>
+            
+            <h3>🎯 Strategic Excellence</h3>
+            <ul>
+                <li>United a divided nation through military victories and political wisdom</li>
+                <li>Organized the kingdom's military, administrative, and religious systems</li>
+                <li>Built alliances with neighboring nations when beneficial</li>
+                <li>Recognized and promoted talented individuals regardless of background</li>
+            </ul>
+
+            <h3>🙏 Worshipful Heart</h3>
+            <ul>
+                <li>Made worship central to national identity and daily life</li>
+                <li>Personally led worship with dancing, singing, and instruments</li>
+                <li>Organized Levites, musicians, and singers for temple service</li>
+                <li>Wrote psalms expressing authentic emotions before God</li>
+            </ul>
+
+            <h3>💪 Courage with Humility</h3>
+            <ul>
+                <li>Faced overwhelming enemies trusting in God's strength</li>
+                <li>Refused to harm God's anointed even when pursued unjustly</li>
+                <li>Quickly acknowledged sin when confronted by prophets</li>
+                <li>Gave glory to God rather than taking credit for victories</li>
+            </ul>
+
+            <h3>❌ Leadership Failures</h3>
+            <ul>
+                <li>Failed to discipline his children, leading to family tragedy</li>
+                <li>Allowed personal desires to override moral judgment (Bathsheba)</li>
+                <li>Sometimes prioritized military success over family relationships</li>
+                <li>Held grudges that he passed on to Solomon on his deathbed</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🏆 His Accomplishments</h2>
+            <ul>
+                <li>United all twelve tribes of Israel into one powerful nation for the first time</li>
+                <li>Established Jerusalem as the political and spiritual capital of Israel</li>
+                <li>Defeated Israel's surrounding enemies and expanded territory significantly</li>
+                <li>Brought the Ark of the Covenant to Jerusalem with great celebration</li>
+                <li>Received God's covenant promise of an eternal dynasty (fulfilled in Christ)</li>
+                <li>Organized comprehensive temple worship including musicians, singers, and Levites</li>
+                <li>Gathered materials and made detailed plans for the temple (built by Solomon)</li>
+                <li>Created a stable kingdom that prospered through Solomon's reign</li>
+                <li>Wrote approximately 75 psalms that have blessed billions throughout history</li>
+                <li>Modeled genuine repentance that restored his relationship with God</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>❌ His Mistakes & Character Flaws</h2>
+            <ul>
+                <li>Adultery with Bathsheba while her husband Uriah was at war</li>
+                <li>Murder of Uriah through deliberate military manipulation</li>
+                <li>Poor parenting that led to dysfunction, rape, murder, and rebellion in his family</li>
+                <li>Vindictiveness toward enemies, even giving vengeful instructions on his deathbed</li>
+                <li>Pride in taking a census against God's will, resulting in 70,000 deaths</li>
+                <li>Passive response to Amnon's rape of Tamar, failing to bring justice</li>
+                <li>Failure to properly discipline Adonijah, contributing to attempted coup</li>
+                <li>Polygamy that created jealousy and conflict among his children</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>✝️ Christ Connection - David Points to Jesus</h2>
+            <p>David's life profoundly foreshadows Jesus Christ in numerous ways:</p>
+            <ul>
+                <li><strong>Birthplace:</strong> Both were born in Bethlehem</li>
+                <li><strong>Shepherds:</strong> Both were shepherds (literal and spiritual - Good Shepherd)</li>
+                <li><strong>Anointing:</strong> Both anointed by God for kingship while young</li>
+                <li><strong>Rejection then Reception:</strong> Both rejected before being accepted as king</li>
+                <li><strong>Jerusalem Entry:</strong> Both entered Jerusalem to shouts of praise</li>
+                <li><strong>Eternal Kingdom:</strong> David's throne represents Christ's eternal kingdom</li>
+                <li><strong>Son of David:</strong> Jesus is repeatedly called "Son of David" in the Gospels</li>
+                <li><strong>Davidic Covenant:</strong> Finds ultimate fulfillment in Christ's eternal reign</li>
+                <li><strong>Suffering Servant:</strong> David's psalms of suffering prophesy Christ's passion</li>
+                <li><strong>Victorious King:</strong> David's victories foreshadow Christ's triumph over sin and death</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🎓 Lessons We Can Learn</h2>
+            <ul>
+                <li>God looks at the heart, not outward appearance or human qualifications</li>
+                <li>Faithfulness in small, hidden responsibilities prepares us for greater public responsibilities</li>
+                <li>True worship comes from an authentic, vulnerable heart connection with God</li>
+                <li>Even great leaders with genuine faith can fall into serious sin</li>
+                <li>Genuine repentance restores relationship with God, though consequences may remain</li>
+                <li>Leadership requires both strength in battle and humility in worship</li>
+                <li>Our past failures don't disqualify us from God's future purposes</li>
+                <li>Transparency about our struggles helps others relate to God honestly</li>
+                <li>Success in public ministry doesn't guarantee success in private family life</li>
+                <li>God's promises remain faithful even when we are faithless</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🎯 How to Apply These Lessons</h2>
+            
+            <h3>👶 For Children (Ages 5-12)</h3>
+            <ul>
+                <li>God cares more about your heart than what you look like</li>
+                <li>Being faithful in small chores prepares you for bigger responsibilities</li>
+                <li>It's good to worship God with music, dancing, and joy</li>
+                <li>When you sin, say sorry to God right away like David did</li>
+                <li>God can use you even if you're the youngest or smallest</li>
+            </ul>
+
+            <h3>🧑 For Teens (Ages 13-18)</h3>
+            <ul>
+                <li>Develop your private relationship with God through worship and honesty</li>
+                <li>Don't let success or popularity make you think you're above God's rules</li>
+                <li>True friends (like Jonathan) help you stay close to God</li>
+                <li>When confronted about sin, own it immediately rather than making excuses</li>
+                <li>Your psalms (prayers, songs, journals) can help others connect with God</li>
+            </ul>
+
+            <h3>👨‍👩‍👧‍👦 For Adults</h3>
+            <ul>
+                <li>Regularly examine whether you're cultivating a heart "after God's own heart"</li>
+                <li>Success in ministry or career doesn't excuse neglecting family relationships</li>
+                <li>Create space for authentic worship that expresses real emotions to God</li>
+                <li>When confronted about sin, respond with humility rather than defensiveness</li>
+                <li>Your private faithfulness matters more than your public reputation</li>
+                <li>Model genuine repentance for those who look up to you</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🤔 Self-Reflection Questions</h2>
+            
+            <h3>Personal Character</h3>
+            <ul>
+                <li>Would God describe me as someone "after His own heart"? Why or why not?</li>
+                <li>How authentic am I in my worship and prayers, or do I hide my true feelings?</li>
+                <li>When confronted about sin, do I respond like David or make excuses?</li>
+                <li>What "lions and bears" has God helped me overcome in private that prepared me for public challenges?</li>
+            </ul>
+
+            <h3>Relationships & Leadership</h3>
+            <ul>
+                <li>Am I more faithful in public ministry than in private family relationships?</li>
+                <li>Do I surround myself with people who will confront me when I'm wrong (like Nathan)?</li>
+                <li>How well do I balance strength/courage with humility/worship?</li>
+                <li>What legacy am I creating for the next generation?</li>
+            </ul>
+
+            <h3>Spiritual Growth</h3>
+            <ul>
+                <li>Do I worship God with David's wholehearted enthusiasm, or am I self-conscious?</li>
+                <li>What spiritual "materials" am I gathering for God's temple (His kingdom work)?</li>
+                <li>How quickly do I repent when the Holy Spirit convicts me?</li>
+                <li>Am I pointing people toward the ultimate "Son of David" - Jesus Christ?</li>
+            </ul>
+        </div>
+
+        <div class="call-to-action">
+            <h2>🚀 Call to Action</h2>
+            
+            <h3>This Week</h3>
+            <ul>
+                <li>Read one of David's psalms (try Psalm 23, 51, or 103) and pray it back to God</li>
+                <li>Identify one area where you need to repent like David - confess it honestly to God</li>
+                <li>Spend time in private worship without worrying about what others think</li>
+            </ul>
+
+            <h3>This Month</h3>
+            <ul>
+                <li>Read through 1-2 Samuel to see David's complete story</li>
+                <li>Start a journal/psalm of honest prayers expressing your real emotions to God</li>
+                <li>Evaluate your family relationships - are there areas needing attention?</li>
+                <li>Find a "Nathan" - someone who has permission to confront you about sin</li>
+            </ul>
+
+            <h3>Long-term Commitment</h3>
+            <ul>
+                <li>Develop a lifestyle of authentic, wholehearted worship like David</li>
+                <li>Commit to quick repentance when convicted of sin</li>
+                <li>Balance public success with private faithfulness in hidden places</li>
+                <li>Point others toward Jesus, the ultimate "Son of David" and eternal King</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🏺 Archaeological Evidence</h2>
+            
+            <h3>Historical Confirmation</h3>
+            <ul>
+                <li><strong>Tel Dan Inscription (1993):</strong> 9th century BCE stone fragment containing "House of David" (bytdwd) - first archaeological evidence confirming David's historical existence outside the Bible</li>
+                <li><strong>Large Stone Structure, Jerusalem:</strong> Massive 10th-11th century BCE royal complex discovered by Eilat Mazar, possibly David's palace mentioned in 2 Samuel 5:11</li>
+                <li><strong>Khirbet Qeiyafa:</strong> Fortified city from David's era (early 10th century BCE) overlooking the Valley of Elah where David fought Goliath</li>
+                <li><strong>Stepped Stone Structure:</strong> Massive retaining wall in Jerusalem from David's time, supporting royal buildings on the ridge</li>
+                <li><strong>Mesha Stele (Moabite Stone):</strong> 9th century BCE inscription with possible second reference to "House of David"</li>
+                <li><strong>250+ Seals and Bullae:</strong> Administrative artifacts from the United Monarchy period confirming centralized government</li>
+            </ul>
+
+            <h3>Supporting Evidence</h3>
+            <ul>
+                <li><strong>Iron Age IIA Pottery:</strong> Ceramics from 10th century BCE consistent with United Monarchy period</li>
+                <li><strong>City of David Excavations:</strong> Continuous archaeological evidence of Jerusalem as capital from David's time</li>
+                <li><strong>Philistine Destruction Layers:</strong> Archaeological evidence of destroyed Philistine cities matching biblical accounts</li>
+                <li><strong>Musical Instruments:</strong> Archaeological finds of lyres and harps from David's era</li>
+            </ul>
+
+            <h3>Modern Locations</h3>
+            <ul>
+                <li><strong>City of David, Jerusalem:</strong> Archaeological park showing David's original city and water systems</li>
+                <li><strong>Bethlehem:</strong> David's birthplace, 6 miles south of Jerusalem</li>
+                <li><strong>Hebron:</strong> Where David ruled as king of Judah for 7 years before uniting all Israel</li>
+                <li><strong>Valley of Elah:</strong> Site where David defeated Goliath (accessible hiking location today)</li>
+                <li><strong>En Gedi:</strong> Wilderness area where David hid from Saul in caves</li>
+            </ul>
+        </div>
+
+        <div class="highlight-box">
+            <h3>💡 Did You Know?</h3>
+            <ul>
+                <li>David's name means "beloved" - fitting for someone after God's own heart</li>
+                <li>He wrote more biblical content than any author except Moses</li>
+                <li>David is mentioned in the Bible more than 1,000 times</li>
+                <li>His harp playing could calm Saul's depression and demonic oppression</li>
+                <li>The phrase "man after God's own heart" means someone who pursues God's purposes, not sinless perfection</li>
+                <li>David's "mighty men" included former outcasts and criminals who became heroes</li>
+                <li>He reigned 7 years in Hebron and 33 years in Jerusalem (40 years total)</li>
+                <li>Jesus is called "Son of David" 17 times in the New Testament</li>
+            </ul>
+        </div>
+
+        <div class="memory-verse">
+            <div class="verse">"The Lord does not look at the things people look at. People look at the outward appearance, but the Lord looks at the heart."</div>
+            <div>- 1 Samuel 16:7</div>
+        </div>
+
+        <div class="navigation">
+            <a href="flashcards.html" class="btn">🎯 David's Flashcards</a>
+            <a href="../../../index.html" class="btn">🏠 Back to Bible Study Hub</a>
+            <a href="../../../index.html#well-known" class="btn">👑 More Well-Known Characters</a>
+        </div>
+    </div>
+</body>
+</html>
